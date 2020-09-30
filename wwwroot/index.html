@@ -13,18 +13,38 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/loader.css" />
 </head>
 
+
 <body>
-    <app>Loading...</app>
+
+    <!-- <app> -->
+
+    <h1 class="loading-header">Hello There! 😀</h1>
+
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+
+    <h1 class="loading-footer">Welcome to my Weather App</h1>
+
+    <!-- </app> -->
+
+
 
     <!-- <div id="blazor-error-ui">
         An unhandled error has occurred.
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div> -->
-    <script src="_framework/blazor.webassembly.js"></script>
-    <script>navigator.serviceWorker.register('service-worker.js');</script>
+
 </body>
+
+
+<script src="_framework/blazor.webassembly.js"></script>
+<script>navigator.serviceWorker.register('service-worker.js');</script>
+
 
 </html>
