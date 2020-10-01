@@ -17,21 +17,20 @@
 </head>
 
 
-<body>
+<body class="loader" onload="StartGeolocation()">
 
-    <!-- <app> -->
+    <app>
 
-    <h1 class="loading-header">Hello There! 😀</h1>
+        <h1 class="loading-header">Hello There! 😀</h1>
 
-    <div class="spinner">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
-    </div>
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
 
-    <h1 class="loading-footer">Welcome to my Weather App</h1>
+        <h1 class="loading-footer">Welcome to my Weather App</h1>
 
-    <!-- </app> -->
-
+    </app>
 
 
     <!-- <div id="blazor-error-ui">
@@ -43,8 +42,57 @@
 </body>
 
 
+<!-- Script for getting the Geolocation -->
+<script type="text/javascript">
+
+    var lat = 0;
+    var long = 0;
+
+    function StartGeolocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                long = position.coords.longitude;
+                lat = position.coords.latitude;
+            })
+        }
+    }
+
+    window.GetCurrentCoords = () => {
+        return (lat.toString() + " " + long.toString());
+    }
+
+</script>
+
+
+<!-- Script for setting the Weather Icon -->
+<script type="text/javascript">
+
+    window.SetIcon = (currentIcon) => {
+        var temperatureIcon = document.querySelector(".weatherIcon");
+        const skycons = new Skycons({"monochrome": false});
+        skycons.play();
+        return skycons.set(temperatureIcon, Skycons[currentIcon]);
+    }
+
+</script>
+
+
+<!-- Script to remove the Error Message -->
+<script type="text/javascript">
+
+    window.RemoveErrorMessage = () => {
+        if (document.querySelector(".error")) {
+            var errorMessage = document.querySelector(".error");
+            errorMessage.remove();
+        }
+    }
+
+</script>
+
+
 <script src="_framework/blazor.webassembly.js"></script>
 <script>navigator.serviceWorker.register('service-worker.js');</script>
+<script src="https://maxdow.github.io/skycons/skycons.js"></script>
 
 
 </html>

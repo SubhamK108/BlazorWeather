@@ -1,7 +1,83 @@
 ﻿@page "/"
+@using static Components.Location
+@using static Components.City
+@using static Components.Weather
+@using static Components.WeatherIconParser
+@inject IJSRuntime JSRuntime
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+<body class="main">
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    <div class="location">
+        <h1 class="locationName">@Place</h1>
+    </div>
+
+
+    <div>
+        <canvas class="weatherIcon" width="200" height="200">Icon</canvas>
+    </div>
+
+
+    <h1 class="error" style="text-align: center; margin-top: -10em;">@ErrorMessage</h1>
+
+
+    <div class="temperature">
+
+        <div @onclick="ToggleTemperatureUnit" class="tempDegreeSection" title="Change Unit">
+            <h2 class="tempDegree">@Temp</h2>
+            <span class="tempUnit">@TempUnit</span>
+        </div>
+
+        <div class="tempDescriptionSection">
+            <h3 class="tempDescription">@Description</h3>
+        </div>
+
+    </div>
+
+</body>
+
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await GetCurrentCoords();
+        ParseCoords();
+        GetCityDetails();
+        UpdateDOMElements();
+    }
+
+    private async Task GetCurrentCoords()
+    {
+        Coords = await JSRuntime.InvokeAsync<string>("GetCurrentCoords");
+    }
+
+    private async Task SetIcon(string currentIcon)
+    {
+        await JSRuntime.InvokeVoidAsync("SetIcon", currentIcon);
+    }
+
+    private async Task RemoveErrorMessage()
+    {
+        await JSRuntime.InvokeVoidAsync("RemoveErrorMessage");
+    }
+
+    public async void UpdateDOMElements()
+    {
+        int time = 4;
+
+        while (time > 0)
+        {
+            time--;
+            StateHasChanged();
+
+            if (Icon != 0)
+            {
+                await RemoveErrorMessage();
+                await SetIcon(WeatherIcons[Icon]);
+            }
+
+            await Task.Delay(500);
+        }
+    }
+}
