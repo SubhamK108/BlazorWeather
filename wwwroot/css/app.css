@@ -4,7 +4,15 @@
     box-sizing: border-box;
 }
 
-body {
+body.loader {
+    height: 100vh;
+    background: #36d1dc;
+    background: -webkit-linear-gradient(to right, #36d1dc, #5b86e5);
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+    color: rgb(44, 44, 44);
+}
+
+body.main {
     height: 100vh;
     display: flex;
     flex-direction: column;

@@ -53,12 +53,15 @@
 }
 
 .loading-header {
+    text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     letter-spacing: 0.1em;
     font-size: 33px;
+    padding-top: 13%;
 }
 
 .loading-footer {
+    text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     letter-spacing: 0.1em;
     font-size: 22px;
