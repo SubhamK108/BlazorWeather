@@ -1,6 +1,6 @@
 {
-  "name": "Blazor Weather",
-  "short_name": "Blazor Weather",
+  "name": "Weather - Subham Karmakar",
+  "short_name": "SK Weather",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -9,7 +9,7 @@
     {
       "src": "android-chrome-192x192.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "192x192"
     },
     {
       "src": "android-chrome-512x512.png",
