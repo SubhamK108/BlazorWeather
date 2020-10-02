@@ -13,7 +13,7 @@ namespace Components
 
         public static void ParseCoords()
         {
-            if (Coords == "0 0")
+            if (Coords == "1 1")
             {
                 IsLocationAvailable = false;
                 ErrorMessage = "Please turn on your device's location services and refresh the app";

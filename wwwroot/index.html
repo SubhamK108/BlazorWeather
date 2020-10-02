@@ -85,11 +85,21 @@
 
     function StartGeolocation() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(position => {
-                long = position.coords.longitude;
-                lat = position.coords.latitude;
-            })
+            navigator.geolocation.getCurrentPosition(GetPosition, GetError)
+        } else {
+            lat = 1;
+            long = 1;
         }
+    }
+
+    function GetPosition(position) {
+        lat = position.coords.latitude;
+        long = position.coords.longitude;
+    }
+
+    function GetError(error) {
+        lat = 1;
+        long = 1;
     }
 
     window.GetCurrentCoords = () => {
