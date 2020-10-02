@@ -54,7 +54,7 @@ namespace Components
                 }
                 catch (System.Exception)
                 {
-                    if (!IsLocationON)
+                    if (!IsLocationAvailable)
                         ErrorMessage = "Please turn on your device's location services and refresh the app";
                     else
                         ErrorMessage = "There was a network problem, kindly refresh the app. If the problem persists, then that means the daily limit of API Calls has been exhausted, so then please wait till Subham renews the API";
