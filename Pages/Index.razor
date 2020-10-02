@@ -1,7 +1,7 @@
 ﻿@page "/"
 @using static Components.Location
-@using static Components.City
-@using static Components.Weather
+@using static Components.CityFetcher
+@using static Components.WeatherFetcher
 @using static Components.WeatherIconParser
 @inject IJSRuntime JSRuntime
 
@@ -73,14 +73,18 @@
 
     public async void UpdateDOMElements()
     {
-        while (String.IsNullOrEmpty(Place))
+        while (ExitCode == -1)
         {
             await Task.Delay(1000);
             StateHasChanged();
         }
 
-        await RemoveErrorMessage();
-        await SetIcon(WeatherIcons[Icon]);
+        if (ExitCode != 1)
+        {
+            await RemoveErrorMessage();
+            await SetIcon(WeatherIcons[Icon]);
+        }
+
 
         @* int time = 10;
 

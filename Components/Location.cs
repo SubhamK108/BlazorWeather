@@ -5,7 +5,7 @@ namespace Components
     class Location
     {
         public static bool IsLocationAvailable { get; private set; }
-        public static string API { get; } = "41lLMbZLvlLpHzlmw4GJ9G8iActG7U0U";
+        public static string ApiKey { get; } = "IRXJXS7r3yAfZURYWHfsQOo8B8ECQFqP";
         public static string ErrorMessage { get; set; } = "Fetching your location";
         public static string Coords { get; set; } = "lat long";
         public static double Latitude { get; set; }
