@@ -41,7 +41,7 @@
 @code {
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(2000);
+        await Task.Delay(5000);
         await GetCurrentCoords();
         ParseCoords();
         GetCityDetails();
@@ -65,7 +65,7 @@
 
     public async void UpdateDOMElements()
     {
-        int time = 4;
+        int time = 10;
 
         while (time > 0)
         {
