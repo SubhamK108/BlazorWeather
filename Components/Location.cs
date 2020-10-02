@@ -1,11 +1,11 @@
 using System;
+using static Components.WeatherFetcher;
 
 namespace Components
 {
     class Location
     {
-        public static bool IsLocationAvailable { get; private set; }
-        public static string ApiKey { get; } = "IRXJXS7r3yAfZURYWHfsQOo8B8ECQFqP";
+        public static string ApiKey { get; } = "3Bvx6DuChwG7JQ0PE22SUPWxKJkGo2Hc";
         public static string ErrorMessage { get; set; } = "Fetching your location";
         public static string Coords { get; set; } = "lat long";
         public static double Latitude { get; set; }
@@ -15,17 +15,15 @@ namespace Components
         {
             if (Coords == "1 1")
             {
-                IsLocationAvailable = false;
                 ErrorMessage = "Please turn on your device's location services and refresh the app";
+                EndProcessWithError();
             }
             else
             {
-                IsLocationAvailable = true;
                 ErrorMessage = "Fetching weather data of your location";
+                Latitude = Convert.ToDouble(Coords.Split(" ")[0]);
+                Longitude = Convert.ToDouble(Coords.Split(" ")[1]);
             }
-
-            Latitude = Convert.ToDouble(Coords.Split(" ")[0]);
-            Longitude = Convert.ToDouble(Coords.Split(" ")[1]);
         }
     }
 }
