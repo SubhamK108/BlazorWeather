@@ -3,6 +3,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Net.Http;
 using static Components.Location;
+using static Components.WeatherCore;
 using static Components.WeatherFetcher;
 
 namespace Components

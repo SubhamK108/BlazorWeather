@@ -1,12 +1,11 @@
 using System;
+using static Components.WeatherCore;
 using static Components.WeatherFetcher;
 
 namespace Components
 {
     class Location
     {
-        public static string ApiKey { get; } = "3Bvx6DuChwG7JQ0PE22SUPWxKJkGo2Hc";
-        public static string ErrorMessage { get; set; } = "Fetching your location";
         public static string Coords { get; set; } = "lat long";
         public static double Latitude { get; set; }
         public static double Longitude { get; set; }
