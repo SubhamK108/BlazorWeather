@@ -1,0 +1,98 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.loader {
+    height: 100vh;
+    background: #36d1dc;
+    background: -webkit-linear-gradient(to right, #36d1dc, #5b86e5);
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+    color: rgb(44, 44, 44);
+}
+
+body.main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #36d1dc;
+    background: -webkit-linear-gradient(to right, #36d1dc, #5b86e5);
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+    color: rgb(44, 44, 44);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.location,
+.temperature {
+    height: 30vh;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.location {
+    margin-top: -120px;
+    font-size: 20px;
+}
+
+    @media screen and (max-width: 736px) {
+        .location {
+            font-size: 15px;
+        }
+    }
+
+.temperature {
+    flex-direction: column;
+}
+
+.tempDegreeSection {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+    span {
+        margin: 10px;
+        font-size: 46px;
+    }
+
+    h2 {
+        font-size: 55px;
+    }
+
+    @media screen and (max-width: 736px) {
+        .tempDegreeSection span {
+            font-size: 34px;
+        }
+
+        .tempDegreeSection h2 {
+            font-size: 40px;
+        }
+    }
+
+.tempDescriptionSection {
+    font-size: 30px;
+    margin-top: -60px;
+}
+
+    @media screen and (max-width: 736px) {
+        .tempDescriptionSection {
+            font-size: 22px;
+        }
+    }
+
+.weatherIcon {
+    margin-bottom: 32px;
+    margin-top: -40px;
+}
+
+.add-button {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+}
