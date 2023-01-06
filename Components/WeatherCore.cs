@@ -2,7 +2,7 @@ namespace Components
 {
     class WeatherCore
     {
-        public static string ApiKey { get; } = "Cm0P5hbUD5j9rCkzebTYIrSd2kRXxhjd";
+        public static string ApiKey { get; } = "BCkxUErDUkI1sG1I5kfpB3LEJmCXVoPy";
         public static string ErrorMessage { get; set; } = "Fetching your location";
     }
 }
